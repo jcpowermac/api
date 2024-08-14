@@ -160,6 +160,11 @@ func generateOnCreateTable(onCreateTests []OnCreateTestSpec) {
 		Expect(err).ToNot(HaveOccurred(), "initial data should be a valid Kubernetes YAML resource")
 
 		err = k8sClient.Create(ctx, initialObj)
+
+		if err != nil {
+			fmt.Printf("ERROR MSG: %s", err.Error())
+		}
+
 		if in.expectedError != "" {
 			Expect(err).To(MatchError(ContainSubstring(in.expectedError)))
 			return
@@ -246,6 +251,9 @@ func generateOnUpdateTable(onUpdateTests []OnUpdateTestSpec) {
 		updatedObj.SetResourceVersion(gotObj.GetResourceVersion())
 
 		err = k8sClient.Update(ctx, updatedObj)
+		if err != nil {
+			fmt.Printf("ERROR MSG: %s", err.Error())
+		}
 		if in.expectedError != "" {
 			Expect(err).To(MatchError(ContainSubstring(in.expectedError)))
 			return
