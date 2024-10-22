@@ -38824,13 +38824,6 @@ func schema_openshift_api_machine_v1beta1_Workspace(ref common.ReferenceCallback
 							Format:      "",
 						},
 					},
-					"vmGroup": {
-						SchemaProps: spec.SchemaProps{
-							Description: "VMGroup is the cluster vm group in which virtual machines will be added for vm host group based zonal.",
-							Type:        []string{"string"},
-							Format:      "",
-						},
-					},
 				},
 			},
 		},
