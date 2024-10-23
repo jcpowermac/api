@@ -199,6 +199,7 @@ var (
 						reportProblemsToJiraComponent("splat").
 						contactPerson("jcpowermac").
 						productScope(ocpSpecific).
+						enhancementPR("https://github.com/openshift/enhancements/pull/1677").
 						enableIn(configv1.DevPreviewNoUpgrade, configv1.TechPreviewNoUpgrade).
 						mustRegister()
 
