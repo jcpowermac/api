@@ -23,9 +23,10 @@ tests:
                   type: Datacenter 
                 zoneAffinity:
                   type: HostGroup
-                  vmGroup: vmg1
-                  hostGroup: hg1
-                  vmHostRule: mhr1
+                  hostGroup:
+                    vmGroup: vmg1
+                    hostGroup: hg1
+                    vmHostRule: mhr1
                 topology:
                   computeCluster: /IBMCloud/host/vcs-8e-workload
                   datacenter: IBMCloud
@@ -136,9 +137,10 @@ tests:
                 regionAffinity:
                   type: ComputeCluster
                 zoneAffinity:
+                  hostGroup:
+                    hostGroup: hg1
+                    vmHostRule: mhr1
                   type: HostGroup
-                  hostGroup: hg1
-                  vmHostRule: vmhr1
                 topology:
                   computeCluster: /IBMCloud/host/vcs-8e-workload
                   datacenter: IBMCloud
@@ -176,8 +178,9 @@ tests:
                   type: ComputeCluster
                 zoneAffinity:
                   type: HostGroup
-                  vmGroup: hg1
-                  vmHostRule: vmhr1
+                  hostGroup:
+                    vmGroup: vmg1
+                    vmHostRule: mhr1
                 topology:
                   computeCluster: /IBMCloud/host/vcs-8e-workload
                   datacenter: IBMCloud
@@ -215,7 +218,8 @@ tests:
                   type: Datacenter 
                 zoneAffinity:
                   type: ComputeCluster 
-                  hostGroup: hg1
+                  hostGroup:
+                    hostGroup: hg1
                 topology:
                   computeCluster: /IBMCloud/host/vcs-8e-workload
                   datacenter: IBMCloud
@@ -253,7 +257,8 @@ tests:
                   type: Datacenter 
                 zoneAffinity:
                   type: ComputeCluster 
-                  vmHostRule: vmhr1 
+                  hostGroup:
+                    vmHostRule: mhr1
                 topology:
                   computeCluster: /IBMCloud/host/vcs-8e-workload
                   datacenter: IBMCloud
@@ -291,8 +296,9 @@ tests:
                   type: ComputeCluster
                 zoneAffinity:
                   type: HostGroup
-                  vmGroup: vmg1
-                  hostGroup: hg1 
+                  hostGroup:
+                    vmGroup: vmg1
+                    hostGroup: hg1
                 topology:
                   computeCluster: /IBMCloud/host/vcs-8e-workload
                   datacenter: IBMCloud
@@ -331,9 +337,10 @@ tests:
                   type: ComputeCluster
                 zoneAffinity:
                   type: HostGroup
-                  vmGroup: vmg1
-                  hostGroup: hg1
-                  vmHostRule: mhr1
+                  hostGroup:
+                    vmGroup: vmg1
+                    hostGroup: hg1
+                    vmHostRule: mhr1
                 topology:
                   computeCluster: /IBMCloud/host/vcs-8e-workload
                   datacenter: IBMCloud
@@ -369,9 +376,10 @@ tests:
                   type: ComputeCluster
                 zoneAffinity:
                   type: HostGroup
-                  vmGroup: vmg1
-                  hostGroup: hg1
-                  vmHostRule: mhr1
+                  hostGroup:
+                    vmGroup: vmg1
+                    hostGroup: hg1
+                    vmHostRule: mhr1
                 topology:
                   computeCluster: /IBMCloud/host/vcs-8e-workload
                   datacenter: IBMCloud

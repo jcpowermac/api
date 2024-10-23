@@ -1736,16 +1736,53 @@ func (PowerVSServiceEndpoint) SwaggerDoc() map[string]string {
 	return map_PowerVSServiceEndpoint
 }
 
-var map_VSphereFailureDomainAffinity = map[string]string{
-	"":           "VSphereFailureDomainAffinity contains the vCenter cluster vm-host group (virtual machine and host types) and the vm-host affinity rule that together creates a affinity configuration for vm-host based zonal. This configuration within vCenter creates the required association between a failure domain, virtual machines and ESXi hosts to create a vm-host based zone.",
-	"type":       "type is the string representation of the VSphereFailureDomainType with available options of Datacenter, ComputeCluster and HostGroup.",
+var map_VSphereFailureDomainComputeCluster = map[string]string{
+	"": "VSphereFailureDomainComputeCluster is an empty struct for a region or zone of type ComputeCluster",
+}
+
+func (VSphereFailureDomainComputeCluster) SwaggerDoc() map[string]string {
+	return map_VSphereFailureDomainComputeCluster
+}
+
+var map_VSphereFailureDomainDatacenter = map[string]string{
+	"": "VSphereFailureDomainDatacenter is an empty struct for a region of type Datacenter",
+}
+
+func (VSphereFailureDomainDatacenter) SwaggerDoc() map[string]string {
+	return map_VSphereFailureDomainDatacenter
+}
+
+var map_VSphereFailureDomainHostGroup = map[string]string{
+	"":           "VSphereFailureDomainHostGroup holds the vmGroup and the hostGroup names in vCenter corresponds to a vm-host group of type Virtual Machine and Host respectively. Is also contains the vmHostRule which is an affinity vm-host rule in vCenter.",
 	"vmGroup":    "vmGroup is the name of the vm-host group of type virtual machine within vCenter for this failure domain. vmGroup is limited to 80 characters. This field is required when the VSphereFailureDomain ZoneType is HostGroup",
 	"hostGroup":  "hostGroup is the name of the vm-host group of type host within vCenter for this failure domain. hostGroup is limited to 80 characters. This field is required when the VSphereFailureDomain ZoneType is HostGroup",
 	"vmHostRule": "vmHostRule is the name of the affinity vm-host rule within vCenter for this failure domain. vmHostRule is limited to 80 characters. This field is required when the VSphereFailureDomain ZoneType is HostGroup",
 }
 
-func (VSphereFailureDomainAffinity) SwaggerDoc() map[string]string {
-	return map_VSphereFailureDomainAffinity
+func (VSphereFailureDomainHostGroup) SwaggerDoc() map[string]string {
+	return map_VSphereFailureDomainHostGroup
+}
+
+var map_VSphereFailureDomainRegionAffinity = map[string]string{
+	"":               "VSphereFailureDomainRegionAffinity contains the region type and two currently empty fields, datacenter and computeCluster for future use.",
+	"type":           "type is the string representation of the VSphereFailureDomainType with available options of Datacenter and ComputeCluster",
+	"datacenter":     "datacenter currently is empty for future use.",
+	"computeCluster": "computeCluster currently is empty for future use.",
+}
+
+func (VSphereFailureDomainRegionAffinity) SwaggerDoc() map[string]string {
+	return map_VSphereFailureDomainRegionAffinity
+}
+
+var map_VSphereFailureDomainZoneAffinity = map[string]string{
+	"":               "VSphereFailureDomainZoneAffinity contains the vCenter cluster vm-host group (virtual machine and host types) and the vm-host affinity rule that together creates an affinity configuration for vm-host based zonal. This configuration within vCenter creates the required association between a failure domain, virtual machines and ESXi hosts to create a vm-host based zone.",
+	"type":           "type is the string representation of the VSphereFailureDomainType with available options of ComputeCluster and HostGroup.",
+	"hostGroup":      "hostGroup holds the vmGroup and the hostGroup names in vCenter corresponds to a vm-host group of type Virtual Machine and Host respectively. Is also contains the vmHostRule which is an affinity vm-host rule in vCenter.",
+	"computeCluster": "computeCluster currently is empty for future use.",
+}
+
+func (VSphereFailureDomainZoneAffinity) SwaggerDoc() map[string]string {
+	return map_VSphereFailureDomainZoneAffinity
 }
 
 var map_VSpherePlatformFailureDomainSpec = map[string]string{
@@ -1753,8 +1790,8 @@ var map_VSpherePlatformFailureDomainSpec = map[string]string{
 	"name":           "name defines the arbitrary but unique name of a failure domain.",
 	"region":         "region defines the name of a region tag that will be attached to a vCenter datacenter. The tag category in vCenter must be named openshift-region.",
 	"zone":           "zone defines the name of a zone tag that will be attached to a vCenter cluster. The tag category in vCenter must be named openshift-zone.",
-	"regionAffinity": "affinity holds the VMGroup and the HostGroup names in vCenter corresponds to a vm-host group of type Virtual Machine and Host respectively. Is also contains the VMHostRule which is an affinity vm-host rule in vCenter.",
-	"zoneAffinity":   "affinity holds the VMGroup and the HostGroup names in vCenter corresponds to a vm-host group of type Virtual Machine and Host respectively. Is also contains the VMHostRule which is an affinity vm-host rule in vCenter.",
+	"regionAffinity": "regionAffinity holds the type of region",
+	"zoneAffinity":   "zoneAffinity holds the type of the zone and the hostGroup which vmGroup and the hostGroup names in vCenter corresponds to a vm-host group of type Virtual Machine and Host respectively. Is also contains the vmHostRule which is an affinity vm-host rule in vCenter.",
 	"server":         "server is the fully-qualified domain name or the IP address of the vCenter server.",
 	"topology":       "Topology describes a given failure domain using vSphere constructs",
 }
