@@ -1211,7 +1211,6 @@ type VSpherePlatformFailureDomainSpec struct {
 	// regionAffinity holds the type of region
 	// +openshift:validation:featureGate=VSphereHostVMGroupZonal
 	// +kubebuilder:validation:Optional
-	// +optional
 	RegionAffinity VSphereFailureDomainRegionAffinity `json:"regionAffinity,omitempty"`
 
 	// zoneAffinity holds the type of the zone and the hostGroup which
@@ -1220,7 +1219,6 @@ type VSpherePlatformFailureDomainSpec struct {
 	// contains the vmHostRule which is an affinity vm-host rule in vCenter.
 	// +openshift:validation:featureGate=VSphereHostVMGroupZonal
 	// +kubebuilder:validation:Optional
-	// +optional
 	ZoneAffinity VSphereFailureDomainZoneAffinity `json:"zoneAffinity,omitempty"`
 
 	// server is the fully-qualified domain name or the IP address of the vCenter server.
@@ -1368,21 +1366,21 @@ type VSphereFailureDomainHostGroup struct {
 	// vmGroup is limited to 80 characters.
 	// This field is required when the VSphereFailureDomain ZoneType is HostGroup
 	// +kubebuilder:validation:MaxLength=80
-	// +optional
+	// +kubebuilder:validation:Optional
 	VMGroup string `json:"vmGroup,omitempty"`
 
 	// hostGroup is the name of the vm-host group of type host within vCenter for this failure domain.
 	// hostGroup is limited to 80 characters.
 	// This field is required when the VSphereFailureDomain ZoneType is HostGroup
 	// +kubebuilder:validation:MaxLength=80
-	// +optional
+	// +kubebuilder:validation:Optional
 	HostGroup string `json:"hostGroup,omitempty"`
 
 	// vmHostRule is the name of the affinity vm-host rule within vCenter for this failure domain.
 	// vmHostRule is limited to 80 characters.
 	// This field is required when the VSphereFailureDomain ZoneType is HostGroup
 	// +kubebuilder:validation:MaxLength=80
-	// +optional
+	// +kubebuilder:validation:Optional
 	VMHostRule string `json:"vmHostRule,omitempty"`
 }
 
