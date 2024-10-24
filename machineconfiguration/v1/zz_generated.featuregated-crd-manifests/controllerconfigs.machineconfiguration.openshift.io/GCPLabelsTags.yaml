@@ -928,11 +928,13 @@ spec:
                                           type: object
                                         type:
                                           description: |-
-                                            type is the string representation of the VSphereFailureDomainType with available options of
+                                            type is the string representation of the VSphereFailureDomainRegionType with available options of
                                             Datacenter and ComputeCluster
                                           enum:
                                           - ComputeCluster
                                           - Datacenter
+                                          maxLength: 14
+                                          minLength: 9
                                           type: string
                                       type: object
                                     server:
@@ -1056,11 +1058,13 @@ spec:
                                           type: object
                                         type:
                                           description: |-
-                                            type is the string representation of the VSphereFailureDomainType with available options of
+                                            type is the string representation of the VSphereFailureDomainZoneType with available options of
                                             ComputeCluster and HostGroup.
                                           enum:
                                           - HostGroup
                                           - ComputeCluster
+                                          maxLength: 14
+                                          minLength: 9
                                           type: string
                                       type: object
                                       x-kubernetes-validations:

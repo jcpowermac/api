@@ -19494,7 +19494,7 @@ func schema_openshift_api_config_v1_VSphereFailureDomainRegionAffinity(ref commo
 				Properties: map[string]spec.Schema{
 					"type": {
 						SchemaProps: spec.SchemaProps{
-							Description: "type is the string representation of the VSphereFailureDomainType with available options of Datacenter and ComputeCluster",
+							Description: "type is the string representation of the VSphereFailureDomainRegionType with available options of Datacenter and ComputeCluster",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -19530,7 +19530,7 @@ func schema_openshift_api_config_v1_VSphereFailureDomainZoneAffinity(ref common.
 				Properties: map[string]spec.Schema{
 					"type": {
 						SchemaProps: spec.SchemaProps{
-							Description: "type is the string representation of the VSphereFailureDomainType with available options of ComputeCluster and HostGroup.",
+							Description: "type is the string representation of the VSphereFailureDomainZoneType with available options of ComputeCluster and HostGroup.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",

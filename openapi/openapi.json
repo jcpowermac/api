@@ -10595,7 +10595,7 @@
           "$ref": "#/definitions/com.github.openshift.api.config.v1.VSphereFailureDomainDatacenter"
         },
         "type": {
-          "description": "type is the string representation of the VSphereFailureDomainType with available options of Datacenter and ComputeCluster",
+          "description": "type is the string representation of the VSphereFailureDomainRegionType with available options of Datacenter and ComputeCluster",
           "type": "string",
           "default": ""
         }
@@ -10617,7 +10617,7 @@
           "$ref": "#/definitions/com.github.openshift.api.config.v1.VSphereFailureDomainHostGroup"
         },
         "type": {
-          "description": "type is the string representation of the VSphereFailureDomainType with available options of ComputeCluster and HostGroup.",
+          "description": "type is the string representation of the VSphereFailureDomainZoneType with available options of ComputeCluster and HostGroup.",
           "type": "string",
           "default": ""
         }

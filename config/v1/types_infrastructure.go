@@ -1163,19 +1163,19 @@ type VSpherePlatformLoadBalancer struct {
 }
 
 // The VSphereFailureDomainZoneType is a string representation of a failure domain
-// type. There are two supportable types HostGroup and ComputeCluster
+// zone type. There are two supportable types HostGroup and ComputeCluster
 type VSphereFailureDomainZoneType string
 
 // The VSphereFailureDomainRegionType is a string representation of a failure domain
-// type. There are two supportable types ComputeCluster and Datacenter
+// region type. There are two supportable types ComputeCluster and Datacenter
 type VSphereFailureDomainRegionType string
 
 const (
-	// HostGroupFailureDomainZone is a failure domain for a vCenter vm-host group.
+	// HostGroupFailureDomainZone is a failure domain zone for a vCenter vm-host group.
 	HostGroupFailureDomainZone VSphereFailureDomainZoneType = "HostGroup"
-	// ComputeClusterFailureDomainZone is a failure domain for a vCenter compute cluster.
+	// ComputeClusterFailureDomainZone is a failure domain zone for a vCenter compute cluster.
 	ComputeClusterFailureDomainZone VSphereFailureDomainZoneType = "ComputeCluster"
-	// DatacenterFailureDomainRegion is a failure domain for a vCenter datacenter.
+	// DatacenterFailureDomainRegion is a failure domain region for a vCenter datacenter.
 	DatacenterFailureDomainRegion VSphereFailureDomainRegionType = "Datacenter"
 	// ComputeClusterFailureDomainRegion is a failure domain region for a vCenter compute cluster.
 	ComputeClusterFailureDomainRegion VSphereFailureDomainRegionType = "ComputeCluster"
@@ -1321,9 +1321,12 @@ type VSpherePlatformTopology struct {
 // +kubebuilder:validation:XValidation:rule="has(self.type) && self.type == 'HostGroup' ?  has(self.hostGroup.vmHostRule) : !has(self.hostGroup) || !has(self.hostGroup.vmHostRule)",message="vmHostRule is required when type is HostGroup, and forbidden otherwise"
 // +union
 type VSphereFailureDomainZoneAffinity struct {
-	// type is the string representation of the VSphereFailureDomainType with available options of
+	// type is the string representation of the VSphereFailureDomainZoneType with available options of
 	// ComputeCluster and HostGroup.
 	// +kubebuilder:validation:Enum:=HostGroup;ComputeCluster
+	// +kubebuilder:validation:MinLength=9
+	// +kubebuilder:validation:MaxLength=14
+	// +kubebuilder:validation:Type:=string
 	// +unionDiscriminator
 	Type VSphereFailureDomainZoneType `json:"type"`
 
@@ -1340,9 +1343,12 @@ type VSphereFailureDomainZoneAffinity struct {
 // VSphereFailureDomainRegionAffinity contains the region type and two currently
 // empty fields, datacenter and computeCluster for future use.
 type VSphereFailureDomainRegionAffinity struct {
-	// type is the string representation of the VSphereFailureDomainType with available options of
+	// type is the string representation of the VSphereFailureDomainRegionType with available options of
 	// Datacenter and ComputeCluster
+	// +kubebuilder:validation:MinLength=9
+	// +kubebuilder:validation:MaxLength=14
 	// +kubebuilder:validation:Enum:=ComputeCluster;Datacenter
+	// +kubebuilder:validation:Type:=string
 	// +unionDiscriminator
 	Type VSphereFailureDomainRegionType `json:"type"`
 

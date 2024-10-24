@@ -1765,7 +1765,7 @@ func (VSphereFailureDomainHostGroup) SwaggerDoc() map[string]string {
 
 var map_VSphereFailureDomainRegionAffinity = map[string]string{
 	"":               "VSphereFailureDomainRegionAffinity contains the region type and two currently empty fields, datacenter and computeCluster for future use.",
-	"type":           "type is the string representation of the VSphereFailureDomainType with available options of Datacenter and ComputeCluster",
+	"type":           "type is the string representation of the VSphereFailureDomainRegionType with available options of Datacenter and ComputeCluster",
 	"datacenter":     "datacenter currently is empty for future use.",
 	"computeCluster": "computeCluster currently is empty for future use.",
 }
@@ -1776,7 +1776,7 @@ func (VSphereFailureDomainRegionAffinity) SwaggerDoc() map[string]string {
 
 var map_VSphereFailureDomainZoneAffinity = map[string]string{
 	"":               "VSphereFailureDomainZoneAffinity contains the vCenter cluster vm-host group (virtual machine and host types) and the vm-host affinity rule that together creates an affinity configuration for vm-host based zonal. This configuration within vCenter creates the required association between a failure domain, virtual machines and ESXi hosts to create a vm-host based zone.",
-	"type":           "type is the string representation of the VSphereFailureDomainType with available options of ComputeCluster and HostGroup.",
+	"type":           "type is the string representation of the VSphereFailureDomainZoneType with available options of ComputeCluster and HostGroup.",
 	"hostGroup":      "hostGroup holds the vmGroup and the hostGroup names in vCenter corresponds to a vm-host group of type Virtual Machine and Host respectively. Is also contains the vmHostRule which is an affinity vm-host rule in vCenter.",
 	"computeCluster": "computeCluster currently is empty for future use.",
 }
